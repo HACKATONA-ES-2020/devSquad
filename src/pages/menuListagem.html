@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="jumbotron" style="padding-bottom:10px">
-        <h1 class="display-4">Ajude seu vizinho</h1>
+        <h1 class="display-4" onclick=removerCards()>Ajude seu vizinho</h1>
         <p class="lead">Selecione um dos produtos ou serviços da lista abaixo para mais informações</p>
       </div>
 
@@ -23,7 +23,7 @@
         </li>
       </ul>
 
-      <div class="row row-cols-1 row-cols-md-3">
+      <div class="row row-cols-1 row-cols-md-3 cardList">
         <div class="col mb-4">
           <div class="card oferta">
             <img src="https://img.pebmed.com.br/wp-content/uploads/2020/04/09120124/mascaras_para_coronavirus.jpg" class="card-img-top" alt="Máscaras de tecido coloridas" style="width:50%; justify-self:center; margin-top:8px">
@@ -93,6 +93,15 @@
                     document.querySelector("#link-servicos").style.backgroundColor = "rgb(255, 255, 255)";
                 }
             }
+        }
+        
+        function removerCards(){
+            var cardList = document.getElementsByClassName("cardList");
+            for(var i=0; i<cardList.length; i++)
+                cardList[i].remove();
+        }
+        function gerarCards(){
+            
         }
       </script>
 
