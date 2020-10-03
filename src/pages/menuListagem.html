@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos/serviços disponíveis</title>
+    
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./../styles/menuListagem.css" rel="stylesheet">
+</head>
+<body>
+    <div class="jumbotron" style="padding-bottom:10px" style="margin-bottom:5px">
+        <h1 class="display-4">Ajude seu vizinho</h1>
+        <p class="lead">Selecione um dos produtos ou serviços da lista abaixo para mais informações</p>
+      </div>
+
+      <ul class="nav nav-tabs"> 
+        <li class="nav-item" id="aba-produtos" style="width:50%">
+          <a class="nav-link active" id = "link-produtos" href="#" style="color:#495057 ; background-color:#fff" onclick="mudarAba('produto')">Produtos</a>
+        </li>
+        <li class="nav-item" id="aba-servicos" style="width:50%">
+          <a class="nav-link" id = "link-servicos" href="#" style="color:white; background-color:#7db38b" onclick="mudarAba('servico')">Serviços</a>
+        </li>
+      </ul>
+       
+
+      <script>
+        function mudarAba(aba){
+            let corProdutos = document.querySelector("#link-produtos").style.color;
+            let corServicos = document.querySelector("#link-servicos").style.color;
+            let fundoProdutos = document.querySelector("#link-produtos").style.backgroundColor;
+            let fundoServicos = document.querySelector("#link-servicos").style.backgroundColor;
+
+            if(aba === 'produto'){
+                if(corProdutos === "white"){
+                    document.querySelector("#link-produtos").style.color = "rgb(73, 80, 87)";
+                    document.querySelector("#link-produtos").style.backgroundColor = "rgb(255, 255, 255)";
+                    document.querySelector("#link-servicos").style.color = "white";
+                    document.querySelector("#link-servicos").style.backgroundColor = "rgb(125, 179, 139)";
+                }
+            }
+            else if(aba === 'servico'){
+                if(corServicos === "white"){
+                    document.querySelector("#link-produtos").style.color = "white";
+                    document.querySelector("#link-servicos").style.color = "rgb(73, 80, 87)";
+                    document.querySelector("#link-produtos").style.backgroundColor = "rgb(125, 179, 139)";
+                    document.querySelector("#link-servicos").style.backgroundColor = "rgb(255, 255, 255)";
+                }
+            }
+        }
+
+      </script>
+
+</body>
+</html>

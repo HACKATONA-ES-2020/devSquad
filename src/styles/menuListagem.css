@@ -1,0 +1,20 @@
+body {
+    background-color: #ffff;
+}
+
+.jumbotron {
+    background-color: #7db38b;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.nav .nav-tabs .nav-item#aba-produtos{
+    width: 50%;
+    border-color: 0;
+}
+.nav .nav-tabs .nav-item#aba-servicos{
+    width: 50%;
+    border-color: 0;
+}
+
