@@ -4,7 +4,7 @@ $("#login").on("click", function() {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function(firebaseUser) {
-        console.log(firebaseUser); 
+        console.log('logado')
         saveUserData(firebaseUser.uid);
       })
       .catch(function(error) {
@@ -13,6 +13,6 @@ $("#login").on("click", function() {
   
 });
 
-const saveUserData =  (id) => {
-  localStorage.setItem('userId', id);
-}
+const saveUserData =  (id) => localStorage.setItem('userId', id);
+
+
