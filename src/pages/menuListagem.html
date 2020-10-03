@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="jumbotron" style="padding-bottom:10px">
-        <h1 class="display-4" onclick=removerCards()>Ajude seu vizinho</h1>
+        <h1 class="display-4">Ajude seu vizinho</h1>
         <p class="lead">Selecione um dos produtos ou serviços da lista abaixo para mais informações</p>
       </div>
 
@@ -68,6 +68,21 @@
               </div>
             </div>
         </div>
+        <!--
+            {%for card in cardList %}
+                    <div class="col mb-4">
+                        <div class="card oferta">
+                          <img src="{{card.image.src}}" class="card-img-top" alt="{{card.image.alt}}" style="width:50%; justify-self:center; margin-top:8px">
+                          <div class="card-body dados" style="align-items:center">
+                            <h5 class="card-title">{{card.title}}</h5>
+                            <button type="button" class="btn btn-secondary">Detalhes</button>
+                            <p class="card-text descricao" style="grid-area: p">{{card.description}}</p>
+                            <small class="text-muted distancia" style="font-size:15px; grid-area:small">O vendedor está a {{card.distance}} km distantes de você!</small>
+                          </div>
+                        </div>
+                      </div>
+            {%endfor%}
+        -->
       </div>
 
       <script>
@@ -101,7 +116,9 @@
                 cardList[i].remove();
         }
         function gerarCards(){
-            
+            /*
+                dependendo da aba, faz requisicao para o backend de vendas de categorias Produto ou Servico
+            */
         }
       </script>
 
