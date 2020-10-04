@@ -33,6 +33,54 @@ var writeUserData = function writeUserData(name, lastName, cidade, estado, telef
 };
 "use strict";
 
+$('#upload').on('click', function () {
+  var files = document.getElementById("imagem").files;
+  var name = $("#c_fname").val();
+  var valor = $("#valor").val();
+  var descricao = $("#descricao").val();
+  var cat = $("input[name='categoria']:checked").val();
+  console.log(name, valor, descricao, files[0].name, cat);
+
+  if (files.length > 0) {
+    var formData = new FormData();
+    formData.append("imagem", files[0]);
+    var xhttp = new XMLHttpRequest(); // Set POST method and ajax file path
+
+    xhttp.open("POST", "upload.php", true); // call on request changes state
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = this.responseText;
+
+        if (response == 1) {
+          cadastroProdutoFirebase(name, cat, valor, descricao, files[0].name);
+        } else {
+          alert("File not uploaded.");
+        }
+      }
+    };
+
+    xhttp.send(formData);
+  } else {
+    alert("Selecione uma imagem");
+  }
+});
+
+function cadastroProdutoFirebase(name, cat, valor, descricao, imagem) {
+  var infoUser = JSON.parse(localStorage.getItem('userData'));
+  firebase.database().ref('produtos/' + Math.floor(Math.random() * 1050)).set({
+    name: name,
+    categoria: cat,
+    cidade: infoUser.cidade,
+    estado: infoUser.estado,
+    description: descricao,
+    value: valor,
+    userid: localStorage.getItem('userid'),
+    imagem: imagem
+  });
+}
+"use strict";
+
 var firebaseConfig = {
   apiKey: "AIzaSyBhKnlPltiE6UCTJhTQkx8X1XiIAiYC2QY",
   authDomain: "ajude-seu-vizinho.firebaseapp.com",

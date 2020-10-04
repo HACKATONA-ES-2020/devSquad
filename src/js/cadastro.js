@@ -36,3 +36,4 @@ const writeUserData = (name, lastName, cidade, estado, telefone) => {
       telefone: telefone
     });
   }
+  
