@@ -24,6 +24,7 @@ var firebaseConfig = {
     firebase.database().ref('/users/' + idUser)
     .once('value').then(function(snapshot) {
        const userInfo = snapshot.val()
+       console.log(userInfo)
        $("#nameInfo").text(userInfo.name + " " + userInfo.lastName)
        $("#enderecoInfo").text(userInfo.cidade + " , " + userInfo.estado)
        $("#telefoneInfo").text(userInfo.telefone)
