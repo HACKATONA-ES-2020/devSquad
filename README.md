@@ -18,10 +18,12 @@ Hackatona de Engenharia de Software pela PUCRS.
 
 
 ## **Instalação:**
-Para instalar e rodar o projeto, execute os seguintes comandos no terminal.
+Para instalar e rodar o projeto, execute os seguintes comandos no terminal. Para um dos comandos, 
+você precisará instalar o docker no seu computador.
 ```
-git clone https://github.com/HACKATONA-ES-2020/devSquad
+git clone https://github.com/HACKATONA-ES-2020/devSquad.git
 cd devSquad
 npm install
 npm run dev
+docker-compose up
 ```
