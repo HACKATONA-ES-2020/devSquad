@@ -47,7 +47,7 @@ function cadastroProdutoFirebase(name,cat,valor,descricao, imagem) {
           estado: infoUser.estado,
           description: descricao,
           value: valor,
-          userid: localStorage.getItem('userid'),
+          userid: localStorage.getItem('userId'),
           imagem: imagem
         });
 

@@ -33,7 +33,7 @@ function carregarProdutos() {
         $("#produtos").append(`<div class="d-block d-md-flex podcast-entry
          bg-white mb-5" data-aos="fade-up" id="categoria-${childData.categoria}">
       
-        <div class="image" style="background-image: url('images/img_1.jpg');"></div>
+        <div class="image" style="background-image: url('upload/${childData.imagem ? childData.imagem : 'noimage.jpg' }');"></div>
         <div class="text">
 
           <h3 class="font-weight-light"><a href="single-post.html">${childData.name}</a>
@@ -80,6 +80,8 @@ function loadInfoUser(idUser) {
   .once('value').then(function(snapshot) {
      const userInfo = snapshot.val()
      $("#nameInfo").text(userInfo.name + " " + userInfo.lastName)
+     $("#enderecoInfo").text(userInfo.cidade + " , " + userInfo.estado)
+     $("#telefoneInfo").text(userInfo.telefone)
 });
 }
 

@@ -75,7 +75,7 @@ function cadastroProdutoFirebase(name, cat, valor, descricao, imagem) {
     estado: infoUser.estado,
     description: descricao,
     value: valor,
-    userid: localStorage.getItem('userid'),
+    userid: localStorage.getItem('userId'),
     imagem: imagem
   });
 }
@@ -187,7 +187,7 @@ function carregarProdutos() {
 
       if (user.cidade === childData.cidade && user.estado === childData.estado) {
         count++;
-        $("#produtos").append("<div class=\"d-block d-md-flex podcast-entry\n         bg-white mb-5\" data-aos=\"fade-up\" id=\"categoria-".concat(childData.categoria, "\">\n      \n        <div class=\"image\" style=\"background-image: url('images/img_1.jpg');\"></div>\n        <div class=\"text\">\n\n          <h3 class=\"font-weight-light\"><a href=\"single-post.html\">").concat(childData.name, "</a>\n          </h3>\n          <div class=\"text-white mb-3\"><span class=\"text-black-opacity-05\">\n          ").concat(childData.description, "\n           </span></div>\n              <span style=\"color:#f23a2e;\" class=\"text-black-opacity-05\"> R$ ").concat(childData.value, " </span>\n              <button style=\"float: right\" type=\"button\" data-toggle=\"modal\" data-target=\"#entre-em-contato\" data-whatever=\"").concat(childData.userid, "\" id=\"visualizar-item\"  \n              class=\"btn btn-primary\">Entrar em contato</button>\n          </div>\n\n        </div>"));
+        $("#produtos").append("<div class=\"d-block d-md-flex podcast-entry\n         bg-white mb-5\" data-aos=\"fade-up\" id=\"categoria-".concat(childData.categoria, "\">\n      \n        <div class=\"image\" style=\"background-image: url('upload/").concat(childData.imagem ? childData.imagem : 'noimage.jpg', "');\"></div>\n        <div class=\"text\">\n\n          <h3 class=\"font-weight-light\"><a href=\"single-post.html\">").concat(childData.name, "</a>\n          </h3>\n          <div class=\"text-white mb-3\"><span class=\"text-black-opacity-05\">\n          ").concat(childData.description, "\n           </span></div>\n              <span style=\"color:#f23a2e;\" class=\"text-black-opacity-05\"> R$ ").concat(childData.value, " </span>\n              <button style=\"float: right\" type=\"button\" data-toggle=\"modal\" data-target=\"#entre-em-contato\" data-whatever=\"").concat(childData.userid, "\" id=\"visualizar-item\"  \n              class=\"btn btn-primary\">Entar em contato</button>\n          </div>\n\n        </div>"));
       }
 
       console.log(count);
@@ -213,10 +213,7 @@ function loadInfoUser(idUser) {
   firebase.database().ref('/users/' + idUser).once('value').then(function (snapshot) {
     var userInfo = snapshot.val();
     $("#nameInfo").text(userInfo.name + " " + userInfo.lastName);
+    $("#enderecoInfo").text(userInfo.cidade + " , " + userInfo.estado);
     $("#telefoneInfo").text(userInfo.telefone);
-    $("#inputEmailCadastro").text(userInfo.email);
-    $("#descriptionInfo").text(userInfo.description);
-    $("#cidade_sb").text(userInfo.cidade);
-    $("#estado_sb").text(userInfo.estado);
   });
 }
