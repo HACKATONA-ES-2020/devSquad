@@ -24,6 +24,7 @@ $('#upload').on('click', function() {
             var response = this.responseText;
             if(response == 1){
                cadastroProdutoFirebase(name,cat,valor,descricao, files[0].name)
+               sucessFunction()
 
             }else{
                alert("File not uploaded.");
@@ -51,4 +52,20 @@ function cadastroProdutoFirebase(name,cat,valor,descricao, imagem) {
           imagem: imagem
         });
 
+}
+
+$("#alert-sucess").hide();
+
+
+function sucessFunction() {
+    $("#alert-sucess").show();
+    $('html, body').animate({ scrollTop: $('#alert-sucess').offset().top }, 500);
+
+    setTimeout(function(){
+          $("#alert-sucess").hide();
+     }, 4000);
+
+    $('#cadastro-produto').each (function(){
+    this.reset();
+    });
 }
