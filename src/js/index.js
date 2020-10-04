@@ -4,8 +4,8 @@ function checkLogin() {
     if (localStorage.getItem('userId')) { 
         $("#inicio").hide();
         $("#cadastrar-produtos").show();
-        carregarProdutos();
         loadUserData();
+        carregarProdutos();
         setTimeout(function(){
             $("#loader").hide();
             $("#exibe-itens").show();
@@ -25,3 +25,44 @@ function checkLogin() {
 checkLogin();
 
 $("#loader").hide();
+
+
+$("#servicos").on("click", function() {
+        $("#categoria-2").show()
+        $('#categoria-1').attr('style','display:none !important')
+
+        if($('#produt').hasClass('selected-cat')){
+            $('#produt').removeClass('selected-cat')
+        } if($('#todos').hasClass('selected-cat')) {
+            $('#todos').removeClass('selected-cat')
+         }else{
+           $('#servicos').addClass('selected-cat')
+         }
+});
+
+$("#produt").on("click", function() {
+    $("#categoria-1").show()
+    $('#categoria-2').attr('style','display:none !important')
+
+    if($('#servicos').hasClass('selected-cat')){
+        $('#servicos').removeClass('selected-cat')
+    } if($('#todos').hasClass('selected-cat')) {
+        $('#todos').removeClass('selected-cat')
+     }else{
+       $('#produt').addClass('selected-cat')
+     }
+});
+
+
+$("#todos").on("click", function() {
+    $("#categoria-1").show()
+    $('#categoria-2').show()
+
+    if($('#servicos').hasClass('selected-cat')){
+        $('#servicos').removeClass('selected-cat')
+    } if($('#produt').hasClass('selected-cat')) {
+        $('#produt').removeClass('selected-cat')
+     }else{
+       $('#todos').addClass('selected-cat')
+     }
+});

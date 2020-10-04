@@ -21,6 +21,12 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    .selected-cat{
+      color:#f23a2e !important;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -97,20 +103,29 @@
                 <h3 class="mb-4">Categorias disponiveis</h3>
                 <ul class="list-unstyled">
                   <li>
-                    <a href="#" class="d-flex align-items-center">
+                    <a type="button" style="cursor: pointer;" id="todos" class="d-flex align-items-center selected-cat">
                       <img src="images/icone-produto.png" alt="Image" class="img-fluid mr-2">
                       <div class="podcaster">
-                        <span class="d-block">Produtos</span>
-                        <span class="small">32,420 podcasts</span>
+                        <span class="d-block">Todos</span>
+                        <!-- <span class="small">32,420 podcasts</span> -->
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="d-flex align-items-center">
+                    <a type="button" style="cursor: pointer;" id="produt" class="d-flex align-items-center">
+                      <img src="images/icone-produto.png" alt="Image" class="img-fluid mr-2">
+                      <div class="podcaster">
+                        <span class="d-block">Produtos</span>
+                        <!-- <span class="small">32,420 podcasts</span> -->
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a type="button" style="cursor: pointer;" id="servicos" class="d-flex align-items-center">
                       <img src="images/icone-servico.png" alt="Image" class="img-fluid mr-2">
                       <div class="podcaster">
                         <span class="d-block">Serviços</span>
-                        <span class="small">12,381 podcasts</span>
+                        <!-- <span class="small">12,381 podcasts</span> -->
                       </div>
                     </a>
                   </li>
@@ -118,22 +133,8 @@
               </div>
             </div>
 
-            <div class="col-lg-9">
-
-
-              <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                
-                <div class="image" style="background-image: url('images/img_1.jpg');"></div>
-                <div class="text">
-
-                  <h3 class="font-weight-light"><a href="single-post.html">Produto</a></h3>
-                  <div class="text-white mb-3"><span class="text-black-opacity-05">Join with us! Login or Register. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, ex!</span></div>
-                      <button type="button" id="visualizar-item"  class="btn btn-primary">Visualizar Item</button>
-                  </div>
-                </div>
-
-                      </div>
-                      <div class="container" data-aos="fade-up">
+            <div class="col-lg-9" id="produtos"></div>
+                      <!-- <div class="container" data-aos="fade-up">
                         <div class="row">
                           <div class="col-md-12 text-center">
                             <div class="site-block-27">
@@ -149,7 +150,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
