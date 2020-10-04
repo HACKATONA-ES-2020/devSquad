@@ -117,8 +117,8 @@ function checkLogin() {
 checkLogin();
 $("#loader").hide();
 $("#servicos").on("click", function () {
-  $("#categoria-2").show();
-  $('#categoria-1').attr('style', 'display:none !important');
+  $(".categoria-2").show();
+  $('.categoria-1').attr('style', 'display:none !important');
 
   if ($('#produt').hasClass('selected-cat')) {
     $('#produt').removeClass('selected-cat');
@@ -131,8 +131,8 @@ $("#servicos").on("click", function () {
   $('#servicos').addClass('selected-cat');
 });
 $("#produt").on("click", function () {
-  $("#categoria-1").show();
-  $('#categoria-2').attr('style', 'display:none !important');
+  $(".categoria-1").show();
+  $('.categoria-2').attr('style', 'display:none !important');
 
   if ($('#servicos').hasClass('selected-cat')) {
     $('#servicos').removeClass('selected-cat');
@@ -145,8 +145,8 @@ $("#produt").on("click", function () {
   $('#produt').addClass('selected-cat');
 });
 $("#todos").on("click", function () {
-  $("#categoria-1").show();
-  $('#categoria-2').show();
+  $(".categoria-1").show();
+  $('.categoria-2').show();
 
   if ($('#servicos').hasClass('selected-cat')) {
     $('#servicos').removeClass('selected-cat');
@@ -187,12 +187,11 @@ function carregarProdutos() {
 
       if (user.cidade === childData.cidade && user.estado === childData.estado) {
         count++;
-        $("#produtos").append("<div class=\"d-block d-md-flex podcast-entry\n         bg-white mb-5\" data-aos=\"fade-up\" id=\"categoria-".concat(childData.categoria, "\">\n      \n        <div class=\"image\" style=\"background-image: url('upload/").concat(childData.imagem ? childData.imagem : 'noimage.jpg', "');\"></div>\n        <div class=\"text\">\n\n          <h3 class=\"font-weight-light\"><a href=\"single-post.html\">").concat(childData.name, "</a>\n          </h3>\n          <div class=\"text-white mb-3\"><span class=\"text-black-opacity-05\">\n          ").concat(childData.description, "\n           </span></div>\n              <span style=\"color:#f23a2e;\" class=\"text-black-opacity-05\"> R$ ").concat(childData.value, " </span>\n              <button style=\"float: right\" type=\"button\" data-toggle=\"modal\" data-target=\"#entre-em-contato\" data-whatever=\"").concat(childData.userid, "\" id=\"visualizar-item\"  \n              class=\"btn btn-primary\">Entar em contato</button>\n          </div>\n\n        </div>"));
+        $("#produtos").append("<div class=\"d-block d-md-flex podcast-entry\n         bg-white mb-5 categoria-".concat(childData.categoria, "\" data-aos=\"fade-up\">\n      \n        <div class=\"image\" style=\"background-image: url('upload/").concat(childData.imagem ? childData.imagem : 'noimage.jpg', "');\"></div>\n        <div class=\"text\">\n\n          <h3 class=\"font-weight-light\">").concat(childData.name, "</a>\n          </h3>\n          <div class=\"text-white mb-3\"><span class=\"text-black-opacity-05\">\n          ").concat(childData.description, "\n           </span></div>\n              <span style=\"color:#f23a2e;\" class=\"text-black-opacity-05\"> R$ ").concat(childData.value, " </span>\n              <button style=\"float: right\" type=\"button\" data-toggle=\"modal\" data-target=\"#entre-em-contato\" data-whatever=\"").concat(childData.userid, "\" id=\"visualizar-item\"  \n              class=\"btn btn-primary\">Entar em contato</button>\n          </div>\n\n        </div>"));
       }
-
-      console.log(count);
-      count > 0 ? '' : $("#produtos").append("<span>Desculpe ainda n\xE3o\n         existem produtos cadastrados em sua cidade :(</span>");
     });
+    console.log(count);
+    count > 0 ? '' : $("#produtos").append("<span>Desculpe ainda n\xE3o\n         existem produtos cadastrados em sua cidade :(</span>");
   });
 }
 
