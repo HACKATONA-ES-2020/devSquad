@@ -28,8 +28,8 @@ $("#loader").hide();
 
 
 $("#servicos").on("click", function() {
-        $("#categoria-2").show()
-        $('#categoria-1').attr('style','display:none !important')
+        $(".categoria-2").show()
+        $('.categoria-1').attr('style','display:none !important')
 
         if($('#produt').hasClass('selected-cat')){
             $('#produt').removeClass('selected-cat')
@@ -42,8 +42,8 @@ $("#servicos").on("click", function() {
 });
 
 $("#produt").on("click", function() {
-    $("#categoria-1").show()
-    $('#categoria-2').attr('style','display:none !important')
+    $(".categoria-1").show()
+    $('.categoria-2').attr('style','display:none !important')
 
     if($('#servicos').hasClass('selected-cat')){
         $('#servicos').removeClass('selected-cat')
@@ -57,8 +57,8 @@ $("#produt").on("click", function() {
 
 
 $("#todos").on("click", function() {
-    $("#categoria-1").show()
-    $('#categoria-2').show()
+    $(".categoria-1").show()
+    $('.categoria-2').show()
 
     if($('#servicos').hasClass('selected-cat')){
         $('#servicos').removeClass('selected-cat')

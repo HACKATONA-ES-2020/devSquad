@@ -31,7 +31,7 @@ function carregarProdutos() {
           count++;
          
         $("#produtos").append(`<div class="d-block d-md-flex podcast-entry
-         bg-white mb-5" data-aos="fade-up" id="categoria-${childData.categoria}">
+         bg-white mb-5 categoria-${childData.categoria}" data-aos="fade-up">
       
         <div class="image" style="background-image: url('upload/${childData.imagem ? childData.imagem : 'noimage.jpg' }');"></div>
         <div class="text">
@@ -50,12 +50,11 @@ function carregarProdutos() {
 
         }
 
-        console.log(count)
-        count > 0 ? '' :  $("#produtos").append(`<span>Desculpe ainda não
-         existem produtos cadastrados em sua cidade :(</span>`)
-
-
       });
+
+         console.log(count)
+         count > 0 ? '' :  $("#produtos").append(`<span>Desculpe ainda não
+         existem produtos cadastrados em sua cidade :(</span>`)
   });
 }
 
