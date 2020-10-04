@@ -3,16 +3,21 @@ function checkLogin() {
 
     if (localStorage.getItem('userId')) { 
         $("#inicio").hide();
-        $("#cadastrar-produtos").show();
         loadUserData();
         carregarProdutos();
         setTimeout(function(){
             $("#loader").hide();
             $("#exibe-itens").show();
+            $("body > div.site-wrap > header > div > div > div.col-9 > nav > ul > li:nth-child(2)").show()
+            $("body > div.site-wrap > header > div > div > div.col-9 > nav > ul > li:nth-child(3)").show()
+            $("body > div.site-wrap > header > div > div > div.col-9 > nav > ul > li:nth-child(4)").hide()
+            document.querySelector("#cadastrar-servico")
         }, 1000);
     } else {
         $("#exibe-itens").hide();
-        $("#cadastrar-produtos").hide();
+        $("body > div.site-wrap > header > div > div > div.col-9 > nav > ul > li:nth-child(2)").hide()
+        $("body > div.site-wrap > header > div > div > div.col-9 > nav > ul > li:nth-child(4)").show()
+        $("body > div.site-wrap > header > div > div > div.col-9 > nav > ul > li:nth-child(3)").hide()
         setTimeout(function(){
             $("#loader").hide();
             $("#inicio").show();

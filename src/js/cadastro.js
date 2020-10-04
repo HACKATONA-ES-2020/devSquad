@@ -8,15 +8,13 @@ $("#cadastrar").on("click", function() {
     const name = $("#inputName").val()
     const telefone = $("#inputTelefone").val()
     const lastName = $("#inputLastName").val()
+    const description = $("#inputDescricaoCadastro").val()
 
-
-    console.log(email)
-    console.log(telefone)
-
+    
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(function(firebaseUser) {
         saveUserData(firebaseUser.uid);
-        writeUserData(name, lastName, cidade, estado, telefone);
+        writeUserData(name, lastName, cidade, estado, telefone,description);
         $("#cadastroModal").modal("hide");
         $("#loader").show();
         checkLogin();
@@ -27,13 +25,14 @@ $("#cadastrar").on("click", function() {
   
 });
 
-const writeUserData = (name, lastName, cidade, estado, telefone) => {
+const writeUserData = (name, lastName, cidade, estado, telefone,description) => {
     firebase.database().ref('users/' + localStorage.getItem('userId')).set({
       name: name,
       lastName: lastName,
       cidade: cidade,
       estado: estado,
-      telefone: telefone
+      telefone: telefone,
+      description: description
     });
   }
   
