@@ -42,8 +42,8 @@ function carregarProdutos() {
           ${childData.description}
            </span></div>
               <span style="color:#f23a2e;" class="text-black-opacity-05"> R$ ${childData.value} </span>
-              <button style="float: right" type="button" id="visualizar-item"  
-              class="btn btn-primary">Visualizar Item</button>
+              <button style="float: right" type="button" data-toggle="modal" data-target="#entre-em-contato" data-whatever="${childData.userid}" id="visualizar-item"  
+              class="btn btn-primary">Entar em contato</button>
           </div>
 
         </div>`)
@@ -59,13 +59,28 @@ function carregarProdutos() {
   });
 }
 
+$('#entre-em-contato').on('show.bs.modal', function (event) {
+  let button = $(event.relatedTarget)
+  let idUser = button.data('whatever')
+
+  loadInfoUser(idUser);
+
+})
+
 function loadUserData() {
-  console.log('users/' + localStorage.getItem("userId"))
   return firebase.database().ref('/users/' + localStorage.getItem("userId"))
     .once('value').then(function(snapshot) {
       const user = snapshot.val()
       localStorage.setItem('userData', JSON.stringify(user))
   });
+}
+
+function loadInfoUser(idUser) {
+  firebase.database().ref('/users/' + idUser)
+  .once('value').then(function(snapshot) {
+     const userInfo = snapshot.val()
+     $("#nameInfo").text(userInfo.name + " " + userInfo.lastName)
+});
 }
 
 

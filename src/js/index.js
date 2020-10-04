@@ -35,9 +35,10 @@ $("#servicos").on("click", function() {
             $('#produt').removeClass('selected-cat')
         } if($('#todos').hasClass('selected-cat')) {
             $('#todos').removeClass('selected-cat')
-         }else{
-           $('#servicos').addClass('selected-cat')
-         }
+        }
+
+        $('#servicos').addClass('selected-cat')
+
 });
 
 $("#produt").on("click", function() {
@@ -48,9 +49,10 @@ $("#produt").on("click", function() {
         $('#servicos').removeClass('selected-cat')
     } if($('#todos').hasClass('selected-cat')) {
         $('#todos').removeClass('selected-cat')
-     }else{
-       $('#produt').addClass('selected-cat')
      }
+
+     $('#produt').addClass('selected-cat')
+
 });
 
 
@@ -62,7 +64,7 @@ $("#todos").on("click", function() {
         $('#servicos').removeClass('selected-cat')
     } if($('#produt').hasClass('selected-cat')) {
         $('#produt').removeClass('selected-cat')
-     }else{
-       $('#todos').addClass('selected-cat')
      }
+
+     $('#todos').addClass('selected-cat')
 });

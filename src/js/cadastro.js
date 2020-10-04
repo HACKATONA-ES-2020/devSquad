@@ -6,6 +6,7 @@ $("#cadastrar").on("click", function() {
     const estado = $("#estado_sb").val()
     const date = $("#inputDate").val()
     const name = $("#inputName").val()
+    const telefone = $("#inputTelefone").val()
     const lastName = $("#inputLastName").val()
 
 
@@ -25,11 +26,12 @@ $("#cadastrar").on("click", function() {
   
 });
 
-const writeUserData = (name, lastName, cidade, estado) => {
+const writeUserData = (name, lastName, cidade, estado, telefone) => {
     firebase.database().ref('users/' + localStorage.getItem('userId')).set({
       name: name,
       lastName: lastName,
       cidade: cidade,
-      estado: estado
+      estado: estado,
+      telefone: telefone
     });
   }

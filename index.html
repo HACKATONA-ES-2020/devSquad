@@ -170,7 +170,7 @@
                       <form>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Email:</label>
-                          <input type="text" class="form-control" id="inputEmail" placeholder="exemplo@exemplo.com" required autofocus>
+                          <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@exemplo.com" required autofocus>
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Senha:</label>
@@ -205,7 +205,10 @@
                           <input type="text" style="margin-left: 1%; margin-bottom:3%" id="inputLastName" class="form-control" placeholder="Sobrenome" required>
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" id="inputEmailCadastro" placeholder="Email" required autofocus>
+                          <input type="text" id="inputTelefone" class="form-control" placeholder="Telefone: (99) 9 9999-9999" required autofocus>  
+                        </div>  
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="inputEmailCadastro" placeholder="Email" required autofocus>
                         </div>
                         <div class="form-group">
                           <input type="password" class="form-control" id="inputPasswordCadastro" placeholder="Senha" required>
@@ -225,6 +228,23 @@
                   </div>
                 </div>
               </div>
+
+              <div class="modal fade" style="z-index: 2000;" id="entre-em-contato" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="contatoModalLabel">Informações de contato do seu vizinho!</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <span id="nameInfo"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
             
 
 
