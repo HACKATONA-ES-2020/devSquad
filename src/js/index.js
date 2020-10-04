@@ -3,8 +3,9 @@ function checkLogin() {
 
     if (localStorage.getItem('userId')) { 
         $("#inicio").hide();
-        console.log($("#cadastrar-produtos").show())
-        $("#cadastrar-produtos").show()
+        $("#cadastrar-produtos").show();
+        carregarProdutos();
+        loadUserData();
         setTimeout(function(){
             $("#loader").hide();
             $("#exibe-itens").show();
@@ -19,6 +20,7 @@ function checkLogin() {
     }
     
 }
+
 
 checkLogin();
 
