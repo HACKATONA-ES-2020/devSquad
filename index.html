@@ -78,7 +78,9 @@
       
     </header>
 
-    
+  <div class="container pt-5 hero" id="loader">   
+    <div> <img src="./images/loader.gif"> </div>
+  </div>  
      
     <div class="container pt-5 hero" id="inicio">
       <div class="row align-items-center text-center text-md-left">
@@ -181,14 +183,53 @@
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Senha:</label>
-                          <input type="text" class="form-control" id="inputPassword" placeholder="*******" required>
+                          <input type="password" class="form-control" id="inputPassword" placeholder="*******" required>
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <a style="text-decoration-line: underline;cursor: pointer; margin-right: 1.25rem;" type="button">Novo por aqui? Faça seu cadastro</a>
+                      <a data-dismiss="modal" style="text-decoration-line: underline;cursor: pointer; margin-right: 1.25rem;" type="button"
+                      data-toggle="modal" data-target="#cadastroModal"> Novo por aqui? Faça seu cadastro</a>
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                      <button type="button" class="btn btn-primary">Login</button>
+                      <button type="button" class="btn btn-primary" id="login">Login</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="modal fade" style="z-index: 2000;" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="cadastroModalLabel">Faça o cadastro e comece a ajudar um vizinho</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="input-group">
+                          <input type="text" id="inputName" class="form-control" placeholder="Nome" required autofocus>  
+                          <input type="text" style="margin-left: 1%; margin-bottom:3%" id="inputLastName" class="form-control" placeholder="Sobrenome" required>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="inputEmailCadastro" placeholder="Email" required autofocus>
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" id="inputPasswordCadastro" placeholder="Senha" required>
+                        </div>
+                        <div class="form-group">
+                          <select id="estado_sb" required class="browser-default custom-select select-location" name="estado_sb" onchange="muda_estado();"></select>
+                        </div>
+                        <div class="form-group">
+                         <select id="cidade_sb" required class="browser-default custom-select select-location"  name="cidade_sb"></select>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                      <button type="button" id="cadastrar" class="btn btn-primary">Cadastrar</button>
                     </div>
                   </div>
                 </div>
@@ -250,12 +291,16 @@
   <script src="js/aos.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
   <script src="./main.js"></script>
-
+  <script type="text/javascript" src="./localizaz.js"></script>
   <script src="js/main.js"></script>
 
   <script>
     $('#loginModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
+     var button = $(event.relatedTarget) 
+    })
+
+    $('#cadastroModal').on('show.bs.modal', function (event) {
+     var button = $(event.relatedTarget) 
     })
   </script>
 

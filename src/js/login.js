@@ -4,8 +4,10 @@ $("#login").on("click", function() {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function(firebaseUser) {
-        console.log('logado')
         saveUserData(firebaseUser.uid);
+        $("#loginModal").modal("hide");
+        $("#loader").show();
+        checkLogin();
       })
       .catch(function(error) {
         console.log(error);
