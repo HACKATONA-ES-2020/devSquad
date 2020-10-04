@@ -109,7 +109,7 @@ a {
     position: absolute;
     width: 40px;
     height: 2px;
-    background: f23a2e; }
+    background: #f23a2e; }
   .site-section-heading.text-center:before {
     content: "";
     left: 50%;
@@ -958,7 +958,7 @@ a {
     border-radius: 50%;
     border: 1px solid #efefef; }
   .site-block-27 ul li.active a, .site-block-27 ul li.active span {
-    background: #3ca59d;
+    background: #f23a2e;
     color: #fff;
     border: 1px solid transparent; }
 
