@@ -165,5 +165,10 @@ function loadInfoUser(idUser) {
   firebase.database().ref('/users/' + idUser).once('value').then(function (snapshot) {
     var userInfo = snapshot.val();
     $("#nameInfo").text(userInfo.name + " " + userInfo.lastName);
+    $("#telefoneInfo").text(userInfo.telefone);
+    $("#inputEmailCadastro").text(userInfo.email);
+    $("#descriptionInfo").text(userInfo.description);
+    $("#cidade_sb").text(userInfo.cidade);
+    $("#estado_sb").text(userInfo.estado);
   });
 }
