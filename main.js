@@ -7,11 +7,13 @@ $("#cadastrar").on("click", function () {
   var estado = $("#estado_sb").val();
   var date = $("#inputDate").val();
   var name = $("#inputName").val();
+  var telefone = $("#inputTelefone").val();
   var lastName = $("#inputLastName").val();
   console.log(email);
+  console.log(telefone);
   firebase.auth().createUserWithEmailAndPassword(email, password).then(function (firebaseUser) {
     saveUserData(firebaseUser.uid);
-    writeUserData(name, lastName, cidade, estado, date);
+    writeUserData(name, lastName, cidade, estado, telefone);
     $("#cadastroModal").modal("hide");
     $("#loader").show();
     checkLogin();
@@ -20,12 +22,13 @@ $("#cadastrar").on("click", function () {
   });
 });
 
-var writeUserData = function writeUserData(name, lastName, cidade, estado) {
+var writeUserData = function writeUserData(name, lastName, cidade, estado, telefone) {
   firebase.database().ref('users/' + localStorage.getItem('userId')).set({
     name: name,
     lastName: lastName,
     cidade: cidade,
-    estado: estado
+    estado: estado,
+    telefone: telefone
   });
 };
 "use strict";
@@ -46,8 +49,9 @@ firebase.initializeApp(firebaseConfig);
 function checkLogin() {
   if (localStorage.getItem('userId')) {
     $("#inicio").hide();
-    console.log($("#cadastrar-produtos").show());
     $("#cadastrar-produtos").show();
+    loadUserData();
+    carregarProdutos();
     setTimeout(function () {
       $("#loader").hide();
       $("#exibe-itens").show();
@@ -64,6 +68,48 @@ function checkLogin() {
 
 checkLogin();
 $("#loader").hide();
+$("#servicos").on("click", function () {
+  $("#categoria-2").show();
+  $('#categoria-1').attr('style', 'display:none !important');
+
+  if ($('#produt').hasClass('selected-cat')) {
+    $('#produt').removeClass('selected-cat');
+  }
+
+  if ($('#todos').hasClass('selected-cat')) {
+    $('#todos').removeClass('selected-cat');
+  }
+
+  $('#servicos').addClass('selected-cat');
+});
+$("#produt").on("click", function () {
+  $("#categoria-1").show();
+  $('#categoria-2').attr('style', 'display:none !important');
+
+  if ($('#servicos').hasClass('selected-cat')) {
+    $('#servicos').removeClass('selected-cat');
+  }
+
+  if ($('#todos').hasClass('selected-cat')) {
+    $('#todos').removeClass('selected-cat');
+  }
+
+  $('#produt').addClass('selected-cat');
+});
+$("#todos").on("click", function () {
+  $("#categoria-1").show();
+  $('#categoria-2').show();
+
+  if ($('#servicos').hasClass('selected-cat')) {
+    $('#servicos').removeClass('selected-cat');
+  }
+
+  if ($('#produt').hasClass('selected-cat')) {
+    $('#produt').removeClass('selected-cat');
+  }
+
+  $('#todos').addClass('selected-cat');
+});
 "use strict";
 
 $("#login").on("click", function () {
@@ -82,3 +128,42 @@ $("#login").on("click", function () {
 var saveUserData = function saveUserData(id) {
   return localStorage.setItem('userId', id);
 };
+
+function carregarProdutos() {
+  var count = 0;
+  var produtosRef = firebase.database().ref('produtos');
+  produtosRef.once('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      var childData = childSnapshot.val();
+      var user = JSON.parse(localStorage.getItem('userData'));
+
+      if (user.cidade === childData.cidade && user.estado === childData.estado) {
+        count++;
+        $("#produtos").append("<div class=\"d-block d-md-flex podcast-entry\n         bg-white mb-5\" data-aos=\"fade-up\" id=\"categoria-".concat(childData.categoria, "\">\n      \n        <div class=\"image\" style=\"background-image: url('images/img_1.jpg');\"></div>\n        <div class=\"text\">\n\n          <h3 class=\"font-weight-light\"><a href=\"single-post.html\">").concat(childData.name, "</a>\n          </h3>\n          <div class=\"text-white mb-3\"><span class=\"text-black-opacity-05\">\n          ").concat(childData.description, "\n           </span></div>\n              <span style=\"color:#f23a2e;\" class=\"text-black-opacity-05\"> R$ ").concat(childData.value, " </span>\n              <button style=\"float: right\" type=\"button\" data-toggle=\"modal\" data-target=\"#entre-em-contato\" data-whatever=\"").concat(childData.userid, "\" id=\"visualizar-item\"  \n              class=\"btn btn-primary\">Entrar em contato</button>\n          </div>\n\n        </div>"));
+      }
+
+      console.log(count);
+      count > 0 ? '' : $("#produtos").append("<span>Desculpe ainda n\xE3o\n         existem produtos cadastrados em sua cidade :(</span>");
+    });
+  });
+}
+
+$('#entre-em-contato').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var idUser = button.data('whatever');
+  loadInfoUser(idUser);
+});
+
+function loadUserData() {
+  return firebase.database().ref('/users/' + localStorage.getItem("userId")).once('value').then(function (snapshot) {
+    var user = snapshot.val();
+    localStorage.setItem('userData', JSON.stringify(user));
+  });
+}
+
+function loadInfoUser(idUser) {
+  firebase.database().ref('/users/' + idUser).once('value').then(function (snapshot) {
+    var userInfo = snapshot.val();
+    $("#nameInfo").text(userInfo.name + " " + userInfo.lastName);
+  });
+}
