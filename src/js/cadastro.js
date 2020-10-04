@@ -15,7 +15,7 @@ $("#cadastrar").on("click", function() {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(function(firebaseUser) {
         saveUserData(firebaseUser.uid);
-        writeUserData(name, lastName, cidade, estado, date);
+        writeUserData(name, lastName, cidade, estado, date, telefone);
         $("#cadastroModal").modal("hide");
         $("#loader").show();
         checkLogin();
