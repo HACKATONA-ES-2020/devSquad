@@ -1,9 +1,9 @@
 $("#cadastrar").on("click", function() {
-    console.log('teste');
 
     const email = $("#inputEmail").val()
     const password = $("#inputPassword").val()
-    const cep = $("#inputCep").val()
+    const cidade = $("#cidade_sb").val()
+    const estado = $("#estado_sb").val()
     const date = $("#inputDate").val()
     const name = $("#inputName").val()
     const lastName = $("#inputLastName").val()
@@ -19,11 +19,12 @@ $("#cadastrar").on("click", function() {
   
 });
 
-const writeUserData = (name, lastName, cep, date) => {
+const writeUserData = (name, lastName, cidade, estado, date) => {
     firebase.database().ref('users/' + localStorage.getItem('userId')).set({
       name: name,
       lastName: lastName,
-      cep: cep,
+      cidade: cidade,
+      estado: estado,
       date: date
     });
   }

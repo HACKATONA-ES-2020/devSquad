@@ -23,11 +23,16 @@
         user-select: none;
       }
 
+      .select-location {
+        margin: 3% 0 3% 0 ;
+      }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
       }
+      
 
     </style>
     <!-- Custom styles for this template -->
@@ -55,11 +60,17 @@
   <label for="inputDate" class="sr-only">Data de nascimento</label>
   <input type="date" id="inputDate" class="form-control" required>
 
+  <select id="estado_sb" class="browser-default custom-select select-location" name="estado_sb" onchange="muda_estado();"></select>
+  <br>
+  <select id="cidade_sb" class="browser-default custom-select select-location"  name="cidade_sb"></select>
+  <br/>
+
   <input class="btn btn-lg btn-primary btn-block" value="Cadastrar" id="cadastrar" type="button"></input>
 </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script type="text/javascript" src="./localizaz.js"></script>
 <script src="./main.js"></script>
 </body>
 </html>
