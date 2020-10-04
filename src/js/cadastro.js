@@ -11,11 +11,12 @@ $("#cadastrar").on("click", function() {
 
 
     console.log(email)
+    console.log(telefone)
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(function(firebaseUser) {
         saveUserData(firebaseUser.uid);
-        writeUserData(name, lastName, cidade, estado, date, telefone);
+        writeUserData(name, lastName, cidade, estado, telefone);
         $("#cadastroModal").modal("hide");
         $("#loader").show();
         checkLogin();
