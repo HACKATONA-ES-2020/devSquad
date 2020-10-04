@@ -18,6 +18,10 @@ Hackatona de Engenharia de Software pela PUCRS.
 
 
 ## **Instalação:**
-1. Clone o repositório do projeto na sua máquina com o comando: git clone https://github.com/HACKATONA-ES-2020/devSquad.git
-2. Digite o seguinte comando para executar o projeto: npm run dev
-3. Abra o arquivo index.html no seu navegador
+Para instalar e rodar o projeto, execute os seguintes comandos no terminal.
+```
+git clone https://github.com/HACKATONA-ES-2020/devSquad
+cd devSquad
+npm install
+npm run dev
+```

@@ -59,11 +59,10 @@
               <div class="d-block d-lg-none ml-md-0 mr-auto"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
               <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="active">
-                  <a href="index.html">Home</a>
-                </li>
-                <li><a href="perfil.html">Seu perfil</a></li>
+                <li class="active"> <a href="index.html">Home</a></li>
                 <li><a href="cadastre.html">Cadastrar um produto/serviço</a></li>
+                <li><a style="cursor: pointer;" type="button" id="logout">Logout</a></li>
+                <li><a style="cursor: pointer;"  data-toggle="modal" data-target="#loginModal" type="button" id="logout">Login</a></li>
               </ul>
             </nav>
 
@@ -211,6 +210,9 @@
                           <input type="email" class="form-control" id="inputEmailCadastro" placeholder="Email" required autofocus>
                         </div>
                         <div class="form-group">
+                          <textarea  class="form-control" id="inputDescricaoCadastro" placeholder="Escreva por que você precisa da ajuda do seu vizinho!"></textarea>
+                        </div>
+                        <div class="form-group">
                           <input type="password" class="form-control" id="inputPasswordCadastro" placeholder="Senha" required>
                         </div>
                         <div class="form-group">
@@ -244,6 +246,10 @@
                         <li class="list-group-item">Nome: <small id="nameInfo"></small></li>
                         <li class="list-group-item">Endereço: <small id="enderecoInfo"></small></li>
                       </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                      <a href="./perfil.html"  id="ver-perfil" class="btn btn-primary">Ver perfil</a>
                     </div>
                   </div>
                 </div>

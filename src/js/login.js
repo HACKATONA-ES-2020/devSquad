@@ -15,6 +15,10 @@ $("#login").on("click", function() {
   
 });
 
+$("#logout").on("click", function() {
+    localStorage.removeItem('userId')
+    window.location.href = "./"
+});
 
 const saveUserData =  (id) => localStorage.setItem('userId', id);
 
@@ -48,15 +52,9 @@ function carregarProdutos() {
 
         </div>`)
 
-        }
+const saveUserData =  (id) => localStorage.setItem('userId', id);
 
-      });
 
-         console.log(count)
-         count > 0 ? '' :  $("#produtos").append(`<span>Desculpe ainda não
-         existem produtos cadastrados em sua cidade :(</span>`)
-  });
-}
 
 $('#entre-em-contato').on('show.bs.modal', function (event) {
   let button = $(event.relatedTarget)
@@ -66,22 +64,6 @@ $('#entre-em-contato').on('show.bs.modal', function (event) {
 
 })
 
-function loadUserData() {
-  return firebase.database().ref('/users/' + localStorage.getItem("userId"))
-    .once('value').then(function(snapshot) {
-      const user = snapshot.val()
-      localStorage.setItem('userData', JSON.stringify(user))
-  });
-}
 
-function loadInfoUser(idUser) {
-  firebase.database().ref('/users/' + idUser)
-  .once('value').then(function(snapshot) {
-     const userInfo = snapshot.val()
-     $("#nameInfo").text(userInfo.name + " " + userInfo.lastName)
-     $("#enderecoInfo").text(userInfo.cidade + " , " + userInfo.estado)
-     $("#telefoneInfo").text(userInfo.telefone)
-});
-}
 
 

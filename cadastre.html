@@ -53,11 +53,10 @@
                 <div class="d-block d-lg-none ml-md-0 mr-auto"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li>
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li><a href="perfil.html">Seu perfil</a></li>
-                  <li class="active"><a href="login-register.html">Cadastrar um produto/serviço</a></li>
+                  <li class="active"> <a href="index.html">Home</a></li>
+                  <li><a href="cadastre.html">Cadastrar um produto/serviço</a></li>
+                  <li><a style="cursor: pointer;" type="button" id="logout">Logout</a></li>
+                  <li><a style="cursor: pointer;"  data-toggle="modal" data-target="#loginModal" type="button" id="logout">Login</a></li>
                 </ul>
             </nav>
 
@@ -83,12 +82,21 @@
     </div>  
 
     
+
+    
     <div class="site-section">
+      
       <div class="container" data-aos="fade-up">
         <div class="row justify-content-center">
           <div class="col-md-5 mb-5">
+
+            <div class="alert alert-success" id="alert-sucess" role="alert">
+              <h4 class="alert-heading">Muito bem!</h4>
+              <p>Aêêê! Produto ou serviço cadastrado!!.</p>
+            </div>
+
             <h3 class="mb-5">Registre os dados de seu produto ou serviço: </h3>
-            <form action="#" method="post" class="bg-white">
+            <form action="#" id="cadastro-produto" method="post" class="bg-white">
               
               <div class="">
                 <div class="form-group row">
