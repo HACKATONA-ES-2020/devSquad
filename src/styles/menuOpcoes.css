@@ -1,16 +1,17 @@
 body{
     background-color: #e1e8f2;
+    margin: 100px;
 }
 
-#container{
-    display: grid;
-    height: 50%;
-    grid-template-columns: 6fr 4fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-    "img button1"
-    "img button2";
+.row {
+    align-items:center;
+    justify-content: center
 }
 
+#opcao1{
+    margin-right: 20px;
+}
 
-
+#opcao2{
+    margin-left: 20px;
+}
