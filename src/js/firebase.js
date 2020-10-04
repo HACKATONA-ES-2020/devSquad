@@ -52,7 +52,7 @@ var firebaseConfig = {
           <div class="image" style="background-image: url('upload/${childData.imagem ? childData.imagem : 'noimage.jpg' }');"></div>
           <div class="text">
   
-            <h3 class="font-weight-light"><a href="single-post.html">${childData.name}</a>
+            <h3 class="font-weight-light">${childData.name}
             </h3>
             <div class="text-white mb-3"><span class="text-black-opacity-05">
             ${childData.description}
